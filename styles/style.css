@@ -61,6 +61,9 @@
 .hero__image-overlay {
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
+
+
+
 /* END: Hero styles */
 
 /* START: Home styles */
@@ -117,4 +120,9 @@
 
 .car-card__icon-container {
   @apply flex group-hover:invisible w-full justify-between text-grey;
+}
+
+
+.none{
+  color: rgb(0, 255, 200);
 }
