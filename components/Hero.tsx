@@ -30,6 +30,7 @@ function Hero() {
                   <Image src="/heroc.png" alt='hero'
                       fill className='object-contain '  />                   
               </div>
+              
                   <div className='hero__image-overlay'>
                <Image src="/hero-bg.png" alt='hero'
                       fill className='object-contain relative'  />
