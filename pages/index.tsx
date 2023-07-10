@@ -3,9 +3,15 @@ import { Inter } from 'next/font/google'
 import {  Hero } from '@/components'
 import SearchBar from '@/components/SearchBar'
 import CustomFilter from '@/components/CustomFilter'
+import { fetchCars } from '@/utils'
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default  function Home({ allCars }) {
+
+  // const allCars = await fetchCars()
+  console.log(allCars)
+const isDataEmpty = !Array.isArray(allCars) || allCars.length  < 1 || !allCars
+
   return (
     <main
       className="overflow-hidden"
@@ -28,8 +34,38 @@ export default function Home() {
 
           </div>
         </div>
+        {!isDataEmpty ? (
+          <section>
+            <div className="home__cars-wrapper">
+              {allCars?.map((car) => (
+                <CarCard car={car} />
+              ))}
+</div>
+          </section>
+        ) : (
+            <div>
+              <h2>Ooops, no results</h2>
+              <p>{allCars?.message}</p>
+
+              </div>
+        )}
       </div>
  
+      
+
+
+      
     </main>
   )
+ 
+}
+
+
+export async function getStaticProps() {
+  const allCars = await fetchCars();
+  return {
+    props: {
+      allCars,
+    },
+  };
 }
