@@ -4,6 +4,7 @@ import {  Hero } from '@/components'
 import SearchBar from '@/components/SearchBar'
 import CustomFilter from '@/components/CustomFilter'
 import { fetchCars } from '@/utils'
+import CarCard from '@/components/CarCard'
 const inter = Inter({ subsets: ['latin'] })
 
 export default  function Home({ allCars }) {
@@ -36,7 +37,7 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length  < 1 || !allCars
         </div>
         {!isDataEmpty ? (
           <section>
-            <div className="home__cars-wrapper">
+            <div className="home__car-wrapper">
               {allCars?.map((car) => (
                 <CarCard car={car} />
               ))}
