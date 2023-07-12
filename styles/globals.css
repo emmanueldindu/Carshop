@@ -20,12 +20,12 @@
 }
 
 .hero{
-  @apply flex xl:flex-row flex-col gap-3 relative z-0 max-w-[1440px] mx-auto 
+  @apply flex xl:flex-row h-[100vh] sm:h-[120vh] flex-col gap-3 relative z-0 max-w-[1440px] mx-auto xl:h-[65vh]
 
 }
 
 .hero__title{
-  @apply 2xl:text-[70px] sm:text-[40px] text-[40px] font-medium;
+  @apply 2xl:text-[72px] sm:text-[40px] text-[40px] font-semibold text-['#000013'];
 
   animation-name: fadeIn;
   animation-duration: 2.5s;
@@ -130,7 +130,7 @@
 }
 
 .footer__links {
-  @apply flex-1 w-full font-medium text-teal-900 flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+  @apply flex-1 w-full font-medium text-['#000013'] flex md:justify-end flex-wrap max-md:mt-10 gap-20;
 }
 
 .footer__link {
@@ -186,5 +186,14 @@
 }
 
 .car-card{
-  @apply flex flex-col p-6 justify-center items-start text-black bg-green-200 rounded-3xl 
+  @apply flex flex-col p-6 justify-center items-start text-black bg-gray-200 rounded-3xl hover:bg-white cursor-pointer
 }
+
+.car-card__content{
+  @apply w-full flex justify-between items-start gap-2
+}
+
+.car-card__content-title {
+  @apply text-[22px] leading-[26px] font-bold capitalize text-['#000013']
+}
+

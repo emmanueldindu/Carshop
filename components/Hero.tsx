@@ -12,7 +12,7 @@ function Hero() {
       <div className='hero'>
           <div className="flex-1 pt-36 padding-x">
               <h1 className="hero__title">
-                  Buy or rent a car anywhere around the world 🗺  - easily and affordable!!
+                  Buy or rent a car  - easily and affordable!!
               </h1>
 
               <p className='hero__subtitle'> streamline your car purchase with our smooth booking process</p>
@@ -20,7 +20,7 @@ function Hero() {
               <CustomButton
                   title="Explore Cars"
 
-              containerStyles="text-black bg-[#00FFC8]  rounded-full mt-10"
+              containerStyles="text-white text-xl  bg-[#000013]  rounded-xl mt-10"
               handleClick={handleScroll}
               />
 
@@ -32,8 +32,8 @@ function Hero() {
               </div>
               
                   <div className='hero__image-overlay'>
-               <Image src="/hero-bg.png" alt='hero'
-                      fill className='object-contain relative'  />
+               {/* <Image src="/hero-bgc.png" alt='hero'
+                      fill className='object-contain relative'  /> */}
               </div>
           </div>
       </div>
