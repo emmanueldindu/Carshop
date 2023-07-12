@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import { CustomButtonProps } from '@/types';
 
-function CustomButton({title, containerStyles, btnType, handleClick}: CustomButtonProps) {
+function CustomButton({title, containerStyles, btnType, handleClick, textStyles, rightIcon}: CustomButtonProps) {
   return (
       <button
           disabled={false}
@@ -13,11 +13,21 @@ function CustomButton({title, containerStyles, btnType, handleClick}: CustomButt
           onClick={handleClick}
 
       >
-          <span className={`flex-1`}>
+          <span className={`flex-1 ${textStyles}`}>
               {title}
 
               
           </span>
+          {rightIcon && (
+              <div className='relative w-6 h-6'>
+                  <Image
+                      src={rightIcon}
+                      alt='icon'
+                      fill
+                  className='object-contain'
+                  />
+              </div>
+          )}
           </button>
   )
 }
