@@ -2,7 +2,9 @@ import { CarProps } from '@/types';
 import React from 'react'
 import Image from 'next/image';
 import { Fragment } from 'react';
+
 import { Transition, Dialog } from '@headlessui/react';
+import { generateCarImageUrl } from '@/utils';
 
 interface CarDetailsProps {
     isOpen: boolean;
@@ -61,23 +63,23 @@ const CarDetails = ({isOpen, closeModal, car} : CarDetailsProps ) => {
 
                     <div className="car-details__main-image">
                       
-                      <Image src='/hero.png' alt="car" className='object-contain' fill priority />
+                      <Image src={generateCarImageUrl (car)} alt="car" className='object-contain' fill priority />
                       
                     </div>
                     <div className="flex gap-3">
                       <div className="flex-1 relative w-full h-24 rounded-lg">
-                      <Image src='/hero.png' alt="car" className='object-contain' fill priority />
+                      <Image src={generateCarImageUrl (car, '29')} alt="car" className='object-contain' fill priority />
 
                       </div>
 
                       <div className="flex-1 relative w-full h-24 rounded-lg">
-                      <Image src='/hero.png' alt="car" className='object-contain' fill priority />
+                      <Image src={generateCarImageUrl (car, '33')} alt="car" className='object-contain' fill priority />
 
                       </div>
 
 
                       <div className="flex-1 relative w-full h-24 rounded-lg">
-                      <Image src='/hero.png' alt="car" className='object-contain' fill priority />
+                      <Image src={generateCarImageUrl (car, '13')} alt="car" className='object-contain' fill priority />
 
                       </div>
                     </div>
