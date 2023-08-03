@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 import { GetStaticPropsContext } from "next";
 import { FilterProps, HomeProps } from "@/types";
 
-export default  function Home({ allCars }) {
+export default  function Home({ allCars, searchParams } : HomeProps) {
 
   // const allCars = await fetchCars()
   console.log(allCars)
@@ -64,6 +64,31 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length  < 1 || !allCars
 }
 
 
+
+
+
+
+export async function getStaticProps({ query }: GetStaticPropsContext): Promise<{ props: HomeProps }> {
+  const searchParams: FilterProps = {
+    manufacturer: query?.manufacturer?.toString() || "",     
+    year: parseInt(query?.year?.toString() || "2022", 10),
+    fuel: query?.fuel?.toString() || "",
+    limit: parseInt(query?.limit?.toString() || "10", 10),
+    model: query?.model?.toString() || "",
+  };
+
+  const allCars = await fetchCars(searchParams );
+
+  return {
+    props: {
+      allCars,
+      searchParams,
+    },
+  };
+}
+
+
+
 // export async function getStaticProps({searchParams}) {
 //   const allCars = await fetchCars({
 //     manufacturer: searchParams.manufacturer || "",
@@ -82,24 +107,8 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length  < 1 || !allCars
 
 
 
-export async function getStaticProps({ query }: GetStaticPropsContext): Promise<{ props: HomeProps }> {
-  const searchParams: FilterProps = {
-    manufacturer: query?.manufacturer?.toString() || "",
-    year: parseInt(query?.year?.toString() || "2022", 10),
-    fuel: query?.fuel?.toString() || "",
-    limit: parseInt(query?.limit?.toString() || "10", 10),
-    model: query?.model?.toString() || "",
-  };
 
-  const allCars = await fetchCars(searchParams);
 
-  return {
-    props: {
-      allCars,
-      searchParams,
-    },
-  };
-}
 
 // import { useEffect, useState } from "react";
 // import { fetchCars } from "@/utils";

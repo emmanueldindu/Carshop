@@ -32,6 +32,8 @@ export interface CarProps {
 
 }
 
+export type CarState = CarProps[] & { message?: string };
+
 
 export interface FilterProps {
     manufacturer?: string;
@@ -41,6 +43,13 @@ export interface FilterProps {
     fuel?: string;
   }
 
-  export interface HomeProps {
-    searchParams: FilterProps;
+//   export interface HomeProps {
+//     searchParams: FilterProps;
+// }
+  
+
+
+export interface HomeProps {
+    allCars: CarProps[]; // Assuming CarProps is the interface for your car data
+    searchParams: FilterProps; // Add the searchParams property
   }
