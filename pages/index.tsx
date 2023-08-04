@@ -68,13 +68,16 @@ const isDataEmpty = !Array.isArray(allCars) || allCars.length  < 1 || !allCars
 
 
 
-export async function getStaticProps({ query }: GetStaticPropsContext): Promise<{ props: HomeProps }> {
+export async function getStaticProps({ query, }: GetStaticPropsContext): Promise<{ props: HomeProps }> {
   const searchParams: FilterProps = {
     manufacturer: query?.manufacturer?.toString() || "",     
     year: parseInt(query?.year?.toString() || "2022", 10),
     fuel: query?.fuel?.toString() || "",
     limit: parseInt(query?.limit?.toString() || "10", 10),
     model: query?.model?.toString() || "",
+
+
+ 
   };
 
   const allCars = await fetchCars(searchParams );
